@@ -1,21 +1,11 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import {Card} from "antd";
 import axios from "axios";
-import ParticleComponent from '../components/ParticleComponent';
-import ls from 'local-storage'
 
-class Login extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-
-        }
-    }
+class StaffForm extends Component {
     render() {
         return (
-         
             <Formik
                 onSubmit={(values, { setSubmitting }) => {
                     axios.post("http://localhost:6969/api/auth", {
@@ -24,15 +14,9 @@ class Login extends Component {
                     }, {
                         withCredentials: true
                     })
-<<<<<<< HEAD
-                    .then(res => {
-                        ls.set('role',res.data.role)
-                        window.location.href = "http://localhost:3000/dashboard"
-=======
                     .then(data => {
                         window.location.href = "http://localhost:3000/dashboard";
                         localStorage.setItem("role", data.data.role)
->>>>>>> cadd2a7fd67ac76c26b2141a94c41e24d6348d54
                     })
                     .catch((err) => {this.setState({
                             message: "Wrong name or password",
@@ -58,12 +42,8 @@ class Login extends Component {
                     handleSubmit,
                     } = props;
                     return (
-                        
-                    <div style={{width: "100%", height: "100%", margin: "10% 0", display: "flex",flexDirection: "row", justifyContent: "center", alignItems: "center", backgroundColor: "#ececec"}}> 
-                        <Card  style={{width: "35%", zIndex: "1"}}>
-                            <h1>GREENWICH TRAINING SYSTEM</h1>
-                            <form onSubmit={handleSubmit} >
-                                <label htmlFor="email" style={{ display: 'block' }}>
+                            <form onSubmit={handleSubmit} style={{width: "40%"}}>
+                                <label htmlFor="name" style={{ display: 'block' }}>
                                     Name
                                 </label>
                                 <input
@@ -102,15 +82,13 @@ class Login extends Component {
                                 <input type="submit" className="btn" value="Login" style={{height: "40px", width: "100px", background: "white", color: "black", transition: "0.3s ease"}}/>
 
                             </form>
-                        </Card>
-                        <ParticleComponent />
-                    </div>
+                    
                    
                     );
                 }}
-        </Formik>
+            </Formik>
         );
     }
 }
 
-export default Login;
+export default StaffForm;

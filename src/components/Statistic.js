@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Statistic, Card, Row, Col } from 'antd';
+import { Statistic, Card, Col } from 'antd';
 
 class Statistics extends Component {
 
@@ -16,7 +16,7 @@ class Statistics extends Component {
                 </Card>
             </Col>
             )
-        ) : "Nothing"
+        ) : ""
         return (
             <Col span={6}>
                 {displayStatistic}
