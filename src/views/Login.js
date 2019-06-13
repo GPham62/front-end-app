@@ -4,7 +4,6 @@ import * as Yup from 'yup';
 import {Card} from "antd";
 import axios from "axios";
 import ParticleComponent from '../components/ParticleComponent';
-import ls from 'local-storage'
 
 class Login extends Component {
     constructor(props){
@@ -24,15 +23,9 @@ class Login extends Component {
                     }, {
                         withCredentials: true
                     })
-<<<<<<< HEAD
-                    .then(res => {
-                        ls.set('role',res.data.role)
-                        window.location.href = "http://localhost:3000/dashboard"
-=======
                     .then(data => {
                         window.location.href = "http://localhost:3000/dashboard";
                         localStorage.setItem("role", data.data.role)
->>>>>>> cadd2a7fd67ac76c26b2141a94c41e24d6348d54
                     })
                     .catch((err) => {this.setState({
                             message: "Wrong name or password",
