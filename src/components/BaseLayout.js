@@ -28,6 +28,10 @@ class BaseLayout extends Component {
         .catch(err => console.log(err))
     }
 
+    componentDidUpdate = () => {
+        console.log("layout user", this.props.user)
+    }
+
     render() {
         const { user } = this.props;
         const { collapsed } = this.state

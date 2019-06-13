@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import {Card} from "antd";
 import axios from "axios";
 import ParticleComponent from '../components/ParticleComponent';
+import ls from 'local-storage'
 
 class Login extends Component {
     constructor(props){
@@ -25,7 +26,7 @@ class Login extends Component {
                         withCredentials: true
                     })
                     .then(res => {
-                        console.log("A")
+                        ls.set('role',res.data.role)
                         window.location.href = "http://localhost:3000/dashboard"
                     })
                     .catch((err) => {this.setState({
