@@ -122,7 +122,7 @@ class CourseDetail extends Component {
                     remainTrainee.push(trainees[i])
                 }
             }
-            console.log(remainTrainee)
+            console.log("remainTrainee: ", remainTrainee)
         }
         
         
@@ -179,7 +179,8 @@ class CourseDetail extends Component {
 
                                 
                                 {
-                                    status[2] === false ? <h4>{trainer.name} <Icon type="edit" onClick={()=>this.toggleUpdate(2)}/></h4> : (
+                                    status[2] === false ? (<h4> {trainer.name} <Icon type="edit" onClick={()=>this.toggleUpdate(2)}/></h4> )
+                                    : (
                                         <div>
                                             <Select name="trainer" defaultValue={trainer.name} style={{ width: 200, marginBottom: "20px" }} onChange={this.changeTrainer}>
                                                 <Option id="trainer" value="Trainer" disabled>Trainer</Option>
@@ -208,7 +209,7 @@ class CourseDetail extends Component {
                                     
                                     : (
                                         <div>
-                                            <Select name="trainee" style={{ width: 200, marginTop: "20px" }} onChange={this.changeTrainer}>
+                                            <Select name="trainee" style={{ width: 200, marginTop: "20px" }} onChange={this.changeTrainee}>
                                                 <Option id="trainee" value="Trainee" disabled>Trainee</Option>
                                                 {selectTrainee}
                                             </Select>
